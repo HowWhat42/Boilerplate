@@ -21,6 +21,7 @@ import { Route as LocaleAuthResetPasswordIndexRouteImport } from './routes/$loca
 import { Route as LocaleAuthResendVerificationIndexRouteImport } from './routes/$locale/auth/resend-verification/index'
 import { Route as LocaleAuthLoginIndexRouteImport } from './routes/$locale/auth/login/index'
 import { Route as LocaleAuthForgotPasswordIndexRouteImport } from './routes/$locale/auth/forgot-password/index'
+import { Route as LocaledashboardNotificationsIndexRouteImport } from './routes/$locale/(dashboard)/notifications/index'
 import { Route as LocaledashboardAdminIndexRouteImport } from './routes/$locale/(dashboard)/admin/index'
 
 const SplatRoute = SplatRouteImport.update({
@@ -86,6 +87,12 @@ const LocaleAuthForgotPasswordIndexRoute =
     path: '/forgot-password/',
     getParentRoute: () => LocaleAuthRouteRoute,
   } as any)
+const LocaledashboardNotificationsIndexRoute =
+  LocaledashboardNotificationsIndexRouteImport.update({
+    id: '/notifications/',
+    path: '/notifications/',
+    getParentRoute: () => LocaledashboardRouteRoute,
+  } as any)
 const LocaledashboardAdminIndexRoute =
   LocaledashboardAdminIndexRouteImport.update({
     id: '/admin/',
@@ -100,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/$locale/auth': typeof LocaleAuthRouteRouteWithChildren
   '/$locale/': typeof LocaledashboardIndexRoute
   '/$locale/admin/': typeof LocaledashboardAdminIndexRoute
+  '/$locale/notifications/': typeof LocaledashboardNotificationsIndexRoute
   '/$locale/auth/forgot-password/': typeof LocaleAuthForgotPasswordIndexRoute
   '/$locale/auth/login/': typeof LocaleAuthLoginIndexRoute
   '/$locale/auth/resend-verification/': typeof LocaleAuthResendVerificationIndexRoute
@@ -113,6 +121,7 @@ export interface FileRoutesByTo {
   '/$': typeof SplatRoute
   '/$locale/auth': typeof LocaleAuthRouteRouteWithChildren
   '/$locale/admin': typeof LocaledashboardAdminIndexRoute
+  '/$locale/notifications': typeof LocaledashboardNotificationsIndexRoute
   '/$locale/auth/forgot-password': typeof LocaleAuthForgotPasswordIndexRoute
   '/$locale/auth/login': typeof LocaleAuthLoginIndexRoute
   '/$locale/auth/resend-verification': typeof LocaleAuthResendVerificationIndexRoute
@@ -129,6 +138,7 @@ export interface FileRoutesById {
   '/$locale/auth': typeof LocaleAuthRouteRouteWithChildren
   '/$locale/(dashboard)/': typeof LocaledashboardIndexRoute
   '/$locale/(dashboard)/admin/': typeof LocaledashboardAdminIndexRoute
+  '/$locale/(dashboard)/notifications/': typeof LocaledashboardNotificationsIndexRoute
   '/$locale/auth/forgot-password/': typeof LocaleAuthForgotPasswordIndexRoute
   '/$locale/auth/login/': typeof LocaleAuthLoginIndexRoute
   '/$locale/auth/resend-verification/': typeof LocaleAuthResendVerificationIndexRoute
@@ -145,6 +155,7 @@ export interface FileRouteTypes {
     | '/$locale/auth'
     | '/$locale/'
     | '/$locale/admin/'
+    | '/$locale/notifications/'
     | '/$locale/auth/forgot-password/'
     | '/$locale/auth/login/'
     | '/$locale/auth/resend-verification/'
@@ -158,6 +169,7 @@ export interface FileRouteTypes {
     | '/$'
     | '/$locale/auth'
     | '/$locale/admin'
+    | '/$locale/notifications'
     | '/$locale/auth/forgot-password'
     | '/$locale/auth/login'
     | '/$locale/auth/resend-verification'
@@ -173,6 +185,7 @@ export interface FileRouteTypes {
     | '/$locale/auth'
     | '/$locale/(dashboard)/'
     | '/$locale/(dashboard)/admin/'
+    | '/$locale/(dashboard)/notifications/'
     | '/$locale/auth/forgot-password/'
     | '/$locale/auth/login/'
     | '/$locale/auth/resend-verification/'
@@ -273,6 +286,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleAuthForgotPasswordIndexRouteImport
       parentRoute: typeof LocaleAuthRouteRoute
     }
+    '/$locale/(dashboard)/notifications/': {
+      id: '/$locale/(dashboard)/notifications/'
+      path: '/notifications'
+      fullPath: '/$locale/notifications/'
+      preLoaderRoute: typeof LocaledashboardNotificationsIndexRouteImport
+      parentRoute: typeof LocaledashboardRouteRoute
+    }
     '/$locale/(dashboard)/admin/': {
       id: '/$locale/(dashboard)/admin/'
       path: '/admin'
@@ -286,11 +306,14 @@ declare module '@tanstack/react-router' {
 interface LocaledashboardRouteRouteChildren {
   LocaledashboardIndexRoute: typeof LocaledashboardIndexRoute
   LocaledashboardAdminIndexRoute: typeof LocaledashboardAdminIndexRoute
+  LocaledashboardNotificationsIndexRoute: typeof LocaledashboardNotificationsIndexRoute
 }
 
 const LocaledashboardRouteRouteChildren: LocaledashboardRouteRouteChildren = {
   LocaledashboardIndexRoute: LocaledashboardIndexRoute,
   LocaledashboardAdminIndexRoute: LocaledashboardAdminIndexRoute,
+  LocaledashboardNotificationsIndexRoute:
+    LocaledashboardNotificationsIndexRoute,
 }
 
 const LocaledashboardRouteRouteWithChildren =

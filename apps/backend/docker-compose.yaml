@@ -1,22 +1,31 @@
 services:
   pgsql:
-    image: 'postgres:18'
-    container_name: '${COMPOSE_PROJECT_NAME}_pgsql'
+    image: "postgres:18"
+    container_name: "${COMPOSE_PROJECT_NAME}_pgsql"
     ports:
-      - '${DB_PORT:-5432}:5432'
+      - "${DB_PORT:-5432}:5432"
     environment:
       POSTGRES_MULTIPLE_DATABASES: app,app_test
-      PGPASSWORD: '${DB_PASSWORD:-secret}'
-      POSTGRES_DB: '${DB_DATABASE:-default}'
-      POSTGRES_USER: '${DB_USER?:err}'
-      POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
+      PGPASSWORD: "${DB_PASSWORD:-secret}"
+      POSTGRES_DB: "${DB_DATABASE:-default}"
+      POSTGRES_USER: "${DB_USER?:err}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD:-secret}"
     volumes:
-      - 'sailpgsql:/var/lib/postgresql'
+      - "sailpgsql:/var/lib/postgresql"
       - ./docker/pg/scripts:/docker-entrypoint-initdb.d
     networks:
       - sail
     healthcheck:
-      test: ['CMD', 'pg_isready', '-q', '-d', '${DB_DATABASE:-default}', '-U', '${DB_USER}']
+      test:
+        [
+          "CMD",
+          "pg_isready",
+          "-q",
+          "-d",
+          "${DB_DATABASE:-default}",
+          "-U",
+          "${DB_USER}",
+        ]
       retries: 3
       timeout: 5s
 
@@ -26,19 +35,19 @@ services:
       - minio_data:/data
     command: server --console-address ":9001" /data
     ports:
-      - '9000:9000'
-      - '9001:9001'
+      - "9000:9000"
+      - "9001:9001"
     healthcheck:
-      test: ['CMD', 'mc', 'ready', 'local']
+      test: ["CMD", "mc", "ready", "local"]
       interval: 5s
       timeout: 5s
       retries: 5
 
   mailpit:
-    image: 'axllent/mailpit:latest'
+    image: "axllent/mailpit:latest"
     ports:
-      - '${FORWARD_MAILPIT_PORT:-1025}:1025'
-      - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
+      - "${FORWARD_MAILPIT_PORT:-1025}:1025"
+      - "${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025"
 
 networks:
   sail:

@@ -6,6 +6,7 @@ import { compose } from '@adonisjs/core/helpers'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import { UserSchema } from '#database/schema'
 import { withUUID } from '#common/mixins/with_uuid'
+import { NotifiableTargets } from '@facteurjs/adonisjs/types'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
@@ -26,5 +27,16 @@ export default class User extends compose(UserSchema, AuthFinder, withUUID()) {
   @computed()
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`
+  }
+
+  notificationTargets(): NotifiableTargets {
+    return {
+      transmit: { channel: `users/${this.id}` },
+      database: { notifiableId: this.id },
+    }
+  }
+
+  getModelId(): string {
+    return this.id
   }
 }

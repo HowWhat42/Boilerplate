@@ -98,6 +98,9 @@ importers:
       '@aws-sdk/s3-request-presigner':
         specifier: ^3.1043.0
         version: 3.1043.0
+      '@facteurjs/adonisjs':
+        specifier: 2.0.0-beta.8
+        version: 2.0.0-beta.8(7ddb054a147f05b730031c24cdab1e4b)
       '@monocle.sh/adonisjs-agent':
         specifier: ^1.4.0
         version: 1.4.0(eea58e40cdbd89349e91b4a2a6be3299)
@@ -1893,8 +1896,59 @@ packages:
       '@noble/hashes':
         optional: true
 
+  '@facteurjs/adonisjs@2.0.0-beta.8':
+    resolution: {integrity: sha512-h5XPkyhmYdqOH84BF+M3PAFiKZV/Aj2FD+CmIuJ39ZifkrXtGNSwnv0tMc4Co7mDpG0pigztgySnDJ2sbEPDrQ==}
+    engines: {node: '>=24.0.0'}
+    peerDependencies:
+      '@adonisjs/core': ^7.0.0-next.23
+      '@adonisjs/lucid': ^22.0.0-next.5
+      '@adonisjs/mail': ^10.0.0-next.1
+      '@adonisjs/redis': ^10.0.0-next.2
+      '@adonisjs/transmit': ^2.0.0-1
+    peerDependenciesMeta:
+      '@adonisjs/lucid':
+        optional: true
+      '@adonisjs/mail':
+        optional: true
+      '@adonisjs/redis':
+        optional: true
+      '@adonisjs/transmit':
+        optional: true
+
   '@facteurjs/client@1.0.0-beta.4':
     resolution: {integrity: sha512-zEFQtku4GbznycyPJQSnQlXjIZqOl2gyXlb5zKbtiQK+WxfmvUeoamWDY1ZQuCNOT2iPS0/7WW0joSC6ZprhZA==}
+
+  '@facteurjs/core@2.0.0-beta.2':
+    resolution: {integrity: sha512-yImxv+1BevIY8asy02D44Ymd0lBsQp0N6Onh90TlsPNpB6LsGzwMW2/AxTXl4NUAlnSM+6jQF3mRXHcSfZrB/Q==}
+    peerDependencies:
+      '@aws-sdk/client-sns': ^3.856.0
+      '@boringnode/transmit': ^0.3.0
+      expo-server-sdk: ^3.15.0
+      firebase-admin: ^13.4.0
+      knex: ^3.1.0
+      kysely: ^0.28.3
+      socket.io: ^4.8.1
+      twilio: ^5.8.0
+      web-push: ^3.6.7
+    peerDependenciesMeta:
+      '@aws-sdk/client-sns':
+        optional: true
+      '@boringnode/transmit':
+        optional: true
+      expo-server-sdk:
+        optional: true
+      firebase-admin:
+        optional: true
+      knex:
+        optional: true
+      kysely:
+        optional: true
+      socket.io:
+        optional: true
+      twilio:
+        optional: true
+      web-push:
+        optional: true
 
   '@facteurjs/react@1.0.0-beta.4':
     resolution: {integrity: sha512-62QnJUSvPOTSVVcWJ7/aJwT28U7GQckq/Zg2YaUrBFYWGRygi3C14jCtbC1LrN3NzsqTpN5zuEbT/Q9o493IeQ==}
@@ -2322,6 +2376,15 @@ packages:
 
   '@js-sdsl/ordered-map@4.4.2':
     resolution: {integrity: sha512-iUKgm52T8HOE/makSxjqoWhe95ZJA1/G1sYsGev2JDKUSS14KAgg1LHb+Ba+IPow0xflbnSkOsZcO08C7w1gYw==}
+
+  '@julr/tenace@1.0.0-next.0':
+    resolution: {integrity: sha512-euTVBybJ46d1C9j/L8rsEX+D3RHMJVsUP6DkSTuSOC2WgsgiCeSWzzC8Qu2Hgn+rcPDdX2FWpSo/Se+MtqWNGg==}
+    engines: {node: '>=24'}
+    peerDependencies:
+      '@opentelemetry/api': ^1.0.0
+    peerDependenciesMeta:
+      '@opentelemetry/api':
+        optional: true
 
   '@julr/utils@1.9.0':
     resolution: {integrity: sha512-hKKa29qRusABvUDt5QnJydG9aigplMJMaOrGwu11DAbZyxjqiytfOku6KbrdA1z0yUSvnFU8fSeJMXroYt+bwA==}
@@ -7048,6 +7111,10 @@ packages:
       react: ^18 || ^19 || ^19.0.0-rc
       react-dom: ^18 || ^19 || ^19.0.0-rc
 
+  cockatiel@3.2.1:
+    resolution: {integrity: sha512-gfrHV6ZPkquExvMh9IOkKsBzNDk6sDuZ6DdBGUBkvFnTCqCxzpuq48RySgP0AnaqQkw2zynOFj9yly6T1Q2G5Q==}
+    engines: {node: '>=16'}
+
   code-block-writer@13.0.3:
     resolution: {integrity: sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==}
 
@@ -8431,10 +8498,6 @@ packages:
       tedious:
         optional: true
 
-  ky@1.14.2:
-    resolution: {integrity: sha512-q3RBbsO5A5zrPhB6CaCS8ZUv+NWCXv6JJT4Em0i264G9W0fdPB8YRfnnEi7Dm7X7omAkBIPojzYJ2D1oHTHqug==}
-    engines: {node: '>=18'}
-
   ky@1.14.3:
     resolution: {integrity: sha512-9zy9lkjac+TR1c2tG+mkNSVlyOpInnWdSMiue4F+kq8TwJSgv6o8jhLRg8Ho6SnZ9wOYUq/yozts9qQCfk7bIw==}
     engines: {node: '>=18'}
@@ -8570,10 +8633,6 @@ packages:
 
   loupe@3.2.1:
     resolution: {integrity: sha512-CdzqowRJCeLU72bHvWqwRBBlLcMEtIvGrlvef74kMnV2AolS9Y8xUv1I0U/MNAWMhBlKIoyuEgoJ0t/bbwHbLQ==}
-
-  lru-cache@11.2.5:
-    resolution: {integrity: sha512-vFrFJkWtJvJnD5hg+hJvVE8Lh/TcMzKnTgCWmtBipwI5yLX/iX+5UB2tfuyODF5E7k9xEzMdYgGqaSb1c0c5Yw==}
-    engines: {node: 20 || >=22}
 
   lru-cache@11.3.6:
     resolution: {integrity: sha512-Gf/KoL3C/MlI7Bt0PGI9I+TeTC/I6r/csU58N4BSNc4lppLBeKsOdFYkK+dX0ABDUMJNfCHTyPpzwwO21Awd3A==}
@@ -9081,6 +9140,10 @@ packages:
     resolution: {integrity: sha512-AxTM2wDGORHGEkPCt8yqxOTMgpfbEHqF51f/5fJCmwFC3C/zNcGT63SymH2ttOAaiIws2zVg4+izQCjrakcwHg==}
     engines: {node: '>=20'}
 
+  p-wait-for@6.0.0:
+    resolution: {integrity: sha512-2kKzMtjS8TVcpCOU/gr3vZ4K/WIyS1AsEFXFWapM/0lERCdyTbB6ZeuCIp+cL1aeLZfQoMdZFCBTHiK4I9UtOw==}
+    engines: {node: '>=20'}
+
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
 
@@ -9385,6 +9448,9 @@ packages:
   range-parser@1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
     engines: {node: '>= 0.6'}
+
+  rate-limiter-flexible@9.1.1:
+    resolution: {integrity: sha512-imxFjzPCmvDLMe7d2tsgiSQvs5EI2fI9SNymmslAfOqznZhsZ+PqbIjIYKpuSbd3pKovR1aMG47qfCLIO/adVg==}
 
   raw-body@3.0.2:
     resolution: {integrity: sha512-K5zQjDllxWkf7Z5xJdV0/B0WTNqx6vxG70zJE4N0kBs4LovmEYWJzQGxC9bS9RAKu3bgM40lrd5zoLJ12MQ5BA==}
@@ -11151,7 +11217,7 @@ snapshots:
       '@csstools/css-color-parser': 4.0.1(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)
       '@csstools/css-parser-algorithms': 4.0.0(@csstools/css-tokenizer@4.0.0)
       '@csstools/css-tokenizer': 4.0.0
-      lru-cache: 11.2.5
+      lru-cache: 11.3.6
 
   '@asamuzakjp/dom-selector@6.7.8':
     dependencies:
@@ -11159,7 +11225,7 @@ snapshots:
       bidi-js: 1.0.3
       css-tree: 3.1.0
       is-potential-custom-element-name: 1.0.1
-      lru-cache: 11.2.5
+      lru-cache: 11.3.6
 
   '@asamuzakjp/nwsapi@2.3.9': {}
 
@@ -12336,9 +12402,49 @@ snapshots:
     optionalDependencies:
       '@noble/hashes': 2.0.1
 
+  '@facteurjs/adonisjs@2.0.0-beta.8(7ddb054a147f05b730031c24cdab1e4b)':
+    dependencies:
+      '@adonisjs/core': 7.3.2(@adonisjs/assembler@8.0.0-next.32(typescript@5.9.3))(@vinejs/vine@4.4.0)(edge.js@6.5.0)(pino-pretty@13.1.3)(youch@4.1.0-beta.13)
+      '@facteurjs/core': 2.0.0-beta.2(@opentelemetry/api@1.9.1)(ioredis@5.10.1)(knex@3.2.8(pg@8.20.0))(socket.io@4.8.1)
+      '@julr/utils': 1.9.0
+      '@poppinss/exception': 1.2.3
+    optionalDependencies:
+      '@adonisjs/lucid': 22.4.2(@adonisjs/assembler@8.0.0-next.32(typescript@5.9.3))(@adonisjs/core@7.3.2(@adonisjs/assembler@8.0.0-next.32(typescript@5.9.3))(@vinejs/vine@4.4.0)(edge.js@6.5.0)(pino-pretty@13.1.3)(youch@4.1.0-beta.13))(@vinejs/vine@4.4.0)(luxon@3.7.2)(pg@8.20.0)
+      '@adonisjs/mail': 10.2.0(@adonisjs/assembler@8.0.0-next.32(typescript@5.9.3))(@adonisjs/core@7.3.2(@adonisjs/assembler@8.0.0-next.32(typescript@5.9.3))(@vinejs/vine@4.4.0)(edge.js@6.5.0)(pino-pretty@13.1.3)(youch@4.1.0-beta.13))(@types/luxon@3.7.1)(@types/node@25.6.0)(dayjs@1.11.19)(edge.js@6.5.0)(luxon@3.7.2)
+      '@adonisjs/transmit': 3.0.1(@adonisjs/core@7.3.2(@adonisjs/assembler@8.0.0-next.32(typescript@5.9.3))(@vinejs/vine@4.4.0)(edge.js@6.5.0)(pino-pretty@13.1.3)(youch@4.1.0-beta.13))(ioredis@5.10.1)
+    transitivePeerDependencies:
+      - '@aws-sdk/client-dynamodb'
+      - '@aws-sdk/client-sns'
+      - '@boringnode/transmit'
+      - '@opentelemetry/api'
+      - expo-server-sdk
+      - firebase-admin
+      - ioredis
+      - knex
+      - kysely
+      - orchid-orm
+      - socket.io
+      - twilio
+      - web-push
+
   '@facteurjs/client@1.0.0-beta.4':
     dependencies:
-      ky: 1.14.2
+      ky: 1.14.3
+
+  '@facteurjs/core@2.0.0-beta.2(@opentelemetry/api@1.9.1)(ioredis@5.10.1)(knex@3.2.8(pg@8.20.0))(socket.io@4.8.1)':
+    dependencies:
+      '@julr/tenace': 1.0.0-next.0(@opentelemetry/api@1.9.1)(ioredis@5.10.1)(knex@3.2.8(pg@8.20.0))
+      '@julr/utils': 1.9.0
+      '@poppinss/exception': 1.2.3
+      ky: 1.14.3
+    optionalDependencies:
+      knex: 3.2.8(pg@8.20.0)
+      socket.io: 4.8.1
+    transitivePeerDependencies:
+      - '@aws-sdk/client-dynamodb'
+      - '@opentelemetry/api'
+      - ioredis
+      - orchid-orm
 
   '@facteurjs/react@1.0.0-beta.4':
     dependencies:
@@ -12806,6 +12912,22 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.5
 
   '@js-sdsl/ordered-map@4.4.2': {}
+
+  '@julr/tenace@1.0.0-next.0(@opentelemetry/api@1.9.1)(ioredis@5.10.1)(knex@3.2.8(pg@8.20.0))':
+    dependencies:
+      '@julr/utils': 1.9.0
+      bentocache: 1.6.1(ioredis@5.10.1)(knex@3.2.8(pg@8.20.0))
+      cockatiel: 3.2.1
+      p-wait-for: 6.0.0
+      rate-limiter-flexible: 9.1.1
+    optionalDependencies:
+      '@opentelemetry/api': 1.9.1
+    transitivePeerDependencies:
+      - '@aws-sdk/client-dynamodb'
+      - ioredis
+      - knex
+      - kysely
+      - orchid-orm
 
   '@julr/utils@1.9.0':
     dependencies:
@@ -18172,6 +18294,8 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
+  cockatiel@3.2.1: {}
+
   code-block-writer@13.0.3: {}
 
   color-convert@2.0.1:
@@ -18281,7 +18405,7 @@ snapshots:
       '@asamuzakjp/css-color': 4.1.2
       '@csstools/css-syntax-patches-for-csstree': 1.0.26
       css-tree: 3.1.0
-      lru-cache: 11.2.5
+      lru-cache: 11.3.6
 
   csstype@3.2.3: {}
 
@@ -19087,7 +19211,7 @@ snapshots:
 
   hosted-git-info@9.0.2:
     dependencies:
-      lru-cache: 11.2.5
+      lru-cache: 11.3.6
 
   hot-hook@0.4.1-next.4:
     dependencies:
@@ -19496,8 +19620,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ky@1.14.2: {}
-
   ky@1.14.3: {}
 
   launch-editor@2.12.0:
@@ -19608,8 +19730,6 @@ snapshots:
       js-tokens: 4.0.0
 
   loupe@3.2.1: {}
-
-  lru-cache@11.2.5: {}
 
   lru-cache@11.3.6: {}
 
@@ -20369,6 +20489,8 @@ snapshots:
 
   p-timeout@7.0.1: {}
 
+  p-wait-for@6.0.0: {}
+
   package-json-from-dist@1.0.1: {}
 
   package-manager-detector@1.3.0: {}
@@ -20435,12 +20557,12 @@ snapshots:
 
   path-scurry@2.0.0:
     dependencies:
-      lru-cache: 11.2.5
+      lru-cache: 11.3.6
       minipass: 7.1.2
 
   path-scurry@2.0.2:
     dependencies:
-      lru-cache: 11.2.5
+      lru-cache: 11.3.6
       minipass: 7.1.3
 
   path-to-regexp@6.3.0: {}
@@ -20745,6 +20867,8 @@ snapshots:
     optional: true
 
   range-parser@1.2.1: {}
+
+  rate-limiter-flexible@9.1.1: {}
 
   raw-body@3.0.2:
     dependencies:

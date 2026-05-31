@@ -5,6 +5,8 @@ import { TransactionClientContract } from '@adonisjs/lucid/types/database'
 import User from '#users/models/user'
 import EmailVerificationToken from '#users/models/email_verification_token'
 import env from '#start/env'
+import facteur from '~/facteur/service.ts'
+import ExampleNotification from '#users/notifications/example_notification'
 
 export class EmailVerificationService {
   async generateToken(user: User, transaction?: TransactionClientContract) {
@@ -109,6 +111,14 @@ export class EmailVerificationService {
       .save()
 
     await this.deleteTokens(user)
+
+    await facteur
+      .notification(ExampleNotification)
+      .to(user)
+      .params({
+        userFullname: user.fullName
+      })
+      .send()
 
     return {
       success: true,
