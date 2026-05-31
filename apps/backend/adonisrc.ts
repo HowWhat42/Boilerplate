@@ -67,6 +67,7 @@ export default defineConfig({
     () => import('@adonisjs/i18n/i18n_provider'),
     () => import('#core/providers/api_provider'),
     () => import('#core/providers/vine_provider'),
+    () => import('@facteurjs/adonisjs/facteur_provider'),
   ],
 
   /*
